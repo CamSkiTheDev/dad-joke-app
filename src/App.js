@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import fetch from 'node-fetch';
-import './App.sass';
-import { async } from 'q';
-
+import React, { useState, useEffect } from "react";
+import "./App.sass";
 
 export default () => {
-  const [appState, SetAppState] = useState({ isLoading: true, joke: '' });
+  const [appState, SetAppState] = useState({ isLoading: true, joke: "" });
 
   const GetJoke = () => {
-    fetch('https://icanhazdadjoke.com/', { headers: { 'Accept': 'application/json' } })
+    fetch("https://icanhazdadjoke.com/", {
+      headers: { Accept: "application/json" }
+    })
       .then(res => res.json())
       .then(json => SetAppState({ ...appState, joke: json.joke }))
-      .catch(err => console.error(err))
-  }
+      .catch(err => console.error(err));
+  };
 
   useEffect(() => {
-    fetch('https://icanhazdadjoke.com/', { headers: { 'Accept': 'application/json' } })
+    fetch("https://icanhazdadjoke.com/", {
+      headers: { Accept: "application/json" }
+    })
       .then(res => res.json())
       .then(json => SetAppState({ isLoading: false, joke: json.joke }))
-      .catch(err => console.error(err))
-  }, [])
+      .catch(err => console.error(err));
+  }, []);
 
   const { isLoading, joke } = appState;
 
-  if (isLoading) return (<h2>Loading...</h2>)
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <div>
