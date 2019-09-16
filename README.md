@@ -14,4 +14,4 @@ Star and contrubute to this repo if you would like. also follow me on all the so
 
 ### Video Tutorial Link Below
 
-[Video Tutorial]()
+[Video Tutorial](https://www.youtube.com/watch?v=l7no0jTuPAI)
